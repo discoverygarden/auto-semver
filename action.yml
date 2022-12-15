@@ -15,10 +15,10 @@ runs:
   using: "composite"
   steps:
     - id: bump
-      uses: zwaldowski/match-label-action@9e74bc4791a2b1b712d82fea03db1c5dd18ae514
+      uses: zwaldowski/match-label-action@a66a9cb8432d32da33d2acbc0c3e6efe74ff3bf1
       with:
         allowed: major,minor,patch
-    - uses: zwaldowski/semver-release-action@239e9cd0db94c047ca49b554fd217386f0f86ad4
+    - uses: zwaldowski/semver-release-action@a00dfb8ec7361325376dafedffcd62c8bdcbb2fb
       with:
         bump: ${{ steps.bump.outputs.match }}
         github_token: ${{ inputs.token }}
