@@ -5,7 +5,8 @@ description: Updates the current version tag based on a provided label.
 inputs:
   token:
     description: 'Token to use to push to the repo. Pass in using `secrets.GITHUB_TOKEN`.'
-    required: true
+    required: false
+    default: ${{ github.token }}
   prefix:
     description: The prefix prepended to the version number. Default is v.
     required: false
