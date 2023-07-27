@@ -1,0 +1,12 @@
+---
+name: Auto Semver
+on:
+  workflow_call:
+
+jobs:
+  update-tag:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Semantic Version tagging action
+        uses: discoverygarden/auto-semver@v1
