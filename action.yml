@@ -16,7 +16,7 @@ runs:
   using: "composite"
   steps:
     - id: bump
-      uses: zwaldowski/match-label-action@a66a9cb8432d32da33d2acbc0c3e6efe74ff3bf1
+      uses: zwaldowski/match-label-action@6b836eeaa7c7db16d882edcf54d9b2ef46d831f3
       with:
         allowed: major,minor,patch
     - uses: zwaldowski/semver-release-action@a00dfb8ec7361325376dafedffcd62c8bdcbb2fb
