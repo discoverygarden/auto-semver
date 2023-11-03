@@ -11,10 +11,10 @@ inputs:
     description: The prefix prepended to the version number. Default is v.
     required: false
     default: v
-  outputs:
-    tag:
-      description: 'The version string used to create the tag.'
-      value: ${{ steps.tag.outputs.version_tag }}
+outputs:
+  tag:
+    description: 'The version string used to create the tag.'
+    value: ${{ steps.tag.outputs.version_tag }}
 
 runs:
   using: "composite"
