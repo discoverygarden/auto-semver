@@ -11,6 +11,9 @@ inputs:
     description: The prefix prepended to the version number. Default is v.
     required: false
     default: v
+  outputs:
+    tag:
+      description: 'The version string used to create the tag.'
 
 runs:
   using: "composite"
@@ -20,7 +23,12 @@ runs:
       with:
         allowed: major,minor,patch
     - uses: zwaldowski/semver-release-action@a00dfb8ec7361325376dafedffcd62c8bdcbb2fb
+      id: tag
       with:
         bump: ${{ steps.bump.outputs.match }}
         github_token: ${{ inputs.token }}
         prefix: ${{ inputs.prefix }}
+    - id: outputs
+      run: |
+        echo "tag=${{ steps.tag.outputs.version_tag }}" >> $GITHUB_OUTPUT
+      shell: bash
