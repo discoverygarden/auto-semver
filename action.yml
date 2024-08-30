@@ -20,7 +20,7 @@ runs:
   using: "composite"
   steps:
     - id: bump
-      uses: zwaldowski/match-label-action@a66a9cb8432d32da33d2acbc0c3e6efe74ff3bf1
+      uses: zwaldowski/match-label-action@14a178a2f6a2df15306eb6212e624d38d9892a66
       with:
         allowed: major,minor,patch
     - uses: zwaldowski/semver-release-action@a00dfb8ec7361325376dafedffcd62c8bdcbb2fb
