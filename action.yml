@@ -23,7 +23,7 @@ runs:
       uses: zwaldowski/match-label-action@14a178a2f6a2df15306eb6212e624d38d9892a66
       with:
         allowed: major,minor,patch
-    - uses: zwaldowski/semver-release-action@a00dfb8ec7361325376dafedffcd62c8bdcbb2fb
+    - uses: zwaldowski/semver-release-action@a6a8309186ccf60c52ea2463a723c78d3b924577
       id: tag
       with:
         bump: ${{ steps.bump.outputs.match }}
