@@ -12,6 +12,9 @@ inputs:
     required: false
     default: v
 outputs:
+  matched_label:
+    description: 'The label which matched.'
+    value: ${{ steps.bump.outputs.match }}
   tag:
     description: 'The version string used to create the tag.'
     value: ${{ steps.tag.outputs.version_tag }}
@@ -23,8 +26,9 @@ runs:
       # match-label-action:v5
       uses: zwaldowski/match-label-action@74600601f0f19eeede58634e04b3cc5188a0d7c3
       with:
-        allowed: major,minor,patch
+        allowed: major,minor,patch,no-update
     - id: tag
+      if: steps.bump.outputs.match != "no-update"
       # semver-release-action:v4
       uses: zwaldowski/semver-release-action@a6a8309186ccf60c52ea2463a723c78d3b924577
       with:
