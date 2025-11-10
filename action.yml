@@ -12,7 +12,7 @@ inputs:
     required: false
     default: v
   comment-pr:
-    description: Comment the inititating PR with newly minted tag.
+    description: Comment the initiating PR with newly minted tag.
     required: false
     default: true
 outputs:
