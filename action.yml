@@ -30,7 +30,7 @@ runs:
         allowed: major,minor,patch
     - id: tag
       # semver-release-action:v4
-      uses: zwaldowski/semver-release-action@a6a8309186ccf60c52ea2463a723c78d3b924577
+      uses: zwaldowski/semver-release-action@826de9527b1b733e45cd9204e2a99db8fd5746db
       with:
         bump: ${{ steps.bump.outputs.match }}
         github_token: ${{ inputs.token }}
