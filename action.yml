@@ -25,7 +25,7 @@ runs:
   steps:
     - id: bump
       # match-label-action:v5
-      uses: zwaldowski/match-label-action@74600601f0f19eeede58634e04b3cc5188a0d7c3
+      uses: zwaldowski/match-label-action@741aab5a93a215d559b62e24b860b46f049a0920
       with:
         allowed: major,minor,patch
     - id: tag
