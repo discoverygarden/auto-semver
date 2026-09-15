@@ -12,8 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Semantic Version tagging action
+        id: semver
         uses: discoverygarden/auto-semver@main
       - name: Update Major Tag
+        # Only move the major tag when the semver step succeeded and actually
+        # minted a new tag (it outputs nothing on a `no-update` label).
+        if: success() && steps.semver.outputs.tag != ''
         uses: discoverygarden/action-major-tag@v1
         with:
           prefix: 'v'
