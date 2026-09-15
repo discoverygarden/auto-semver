@@ -16,6 +16,9 @@ inputs:
     required: false
     default: true
 outputs:
+  matched_label:
+    description: 'The label which matched.'
+    value: ${{ steps.bump.outputs.match }}
   tag:
     description: 'The version string used to create the tag.'
     value: ${{ steps.tag.outputs.version_tag }}
@@ -24,12 +27,11 @@ runs:
   using: "composite"
   steps:
     - id: bump
-      # match-label-action:v5
       uses: discoverygarden/match-label-action@v1
       with:
-        allowed: major,minor,patch
+        allowed: major,minor,patch,no-update
     - id: tag
-      # semver-release-action:v4
+      if: steps.bump.outputs.match != "no-update"
       uses: discoverygarden/semver-release-action@v1
       with:
         bump: ${{ steps.bump.outputs.match }}
