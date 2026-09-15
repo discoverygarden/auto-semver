@@ -25,12 +25,12 @@ runs:
   steps:
     - id: bump
       # match-label-action:v5
-      uses: zwaldowski/match-label-action@74600601f0f19eeede58634e04b3cc5188a0d7c3
+      uses: discoverygarden/match-label-action@v1
       with:
         allowed: major,minor,patch
     - id: tag
       # semver-release-action:v4
-      uses: zwaldowski/semver-release-action@a6a8309186ccf60c52ea2463a723c78d3b924577
+      uses: discoverygarden/semver-release-action@v1
       with:
         bump: ${{ steps.bump.outputs.match }}
         github_token: ${{ inputs.token }}
