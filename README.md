@@ -4,11 +4,12 @@ A GitHub action for automatically semantic versioning a repository when a closin
 
 
 ## Inputs
-- **token:** Token to use to push to the repo. Pass in using `secrets.GITHUB_TOKEN`. (required)
+- **token:** Token to use to push to the repo. Pass in using `secrets.GITHUB_TOKEN`.
 - **prefix:** The prefix prepended to the version number. Default is `v`.
 
 ## Outputs
-This action does not output any artifacts.
+- **match_label:** The label matched during the `id: bump` step.
+- **tag:** The tag created by the `id: tag` step.
 
 ## Secrets
 This action does not use any secrets.
@@ -33,10 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
       - name: Run Auto Semver
         uses: discoverygarden/auto-semver@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 ```
 This will run the automatic semantic versioning on closed pull requests to the main branch of a repository. Before it runs the job, it'll also check to see if the pull request is `Merged`, if it was simply closed, it won't run the jobs, as we don't want to increment the version number on any closed pull requests except for ones that have been merged.
